@@ -336,6 +336,9 @@
     color:var(--shinchu);
   }
   .table-note{font-size:16px; margin:32px 0 0;}
+  .dl-table td .td-lead{margin:0 0 10px;}
+  .dl-table td .td-note{margin:12px 0 0; font-size:13px; opacity:.75;}
+  .dl-table td strong{font-weight:600; color:var(--shinchu);}
 
   /* §8 reasons */
   .reason-list{display:flex; flex-direction:column; gap:32px;}
@@ -806,7 +809,7 @@
         </tr>
         <tr>
           <th scope="row"><span class="nb">受講形態</span></th>
-          <td><span class="nb">対面実技</span><span class="nb">【会場所在地】＋</span><span class="nb">オンライン座学。</span><span class="nb">【対面◯日・</span><span class="nb">オンライン◯回などの</span><span class="nb">内訳】</span></td>
+          <td><span class="nb">対面実技＋</span><span class="nb">オンライン座学</span></td>
         </tr>
         <tr>
           <th scope="row"><span class="nb">修了認定</span></th>
@@ -815,11 +818,26 @@
         <tr>
           <th scope="row"><span class="nb">卒業後サポート</span></th>
           <td>
+            <p class="td-lead"><span class="nb">下記は</span><span class="nb">いずれも</span><span class="nb">修了日の</span><span class="nb">翌日を</span><span class="nb">起算日と</span><span class="nb">します。</span></p>
             <ul>
-              <li><span class="nb">受講後3ヶ月の</span><span class="nb">技術フォロー</span><span class="nb">（質問し放題）</span></li>
-              <li><span class="nb">開業・導入初月の</span><span class="nb">メニュー作成・</span><span class="nb">集客導線の</span><span class="nb">個別サポート</span></li>
-              <li><span class="nb">卒業生コミュニティ</span></li>
+              <li><span class="nb">技術フォロー：</span><strong><span class="nb">起算日から</span><span class="nb">3ヶ月間</span></strong><span class="nb">／期間内は</span><span class="nb">チャットでの</span><span class="nb">質問回数に</span><span class="nb">制限は</span><span class="nb">ありません</span><span class="nb">（期間満了後の</span><span class="nb">対応は</span><span class="nb">行いません）</span></li>
+              <li><span class="nb">開業・導入サポート：</span><strong><span class="nb">起算日から</span><span class="nb">3ヶ月間</span></strong><span class="nb">／メニュー作成・</span><span class="nb">集客導線づくりの</span><span class="nb">個別サポート</span><span class="nb">（オンライン個別面談＋</span><span class="nb">期間内チャット相談）</span></li>
+              <li><span class="nb">卒業生コミュニティ：</span><strong><span class="nb">起算日から</span><span class="nb">12ヶ月間</span></strong><span class="nb">／情報共有・</span><span class="nb">質疑応答の</span><span class="nb">場として</span><span class="nb">ご利用いただけます。</span><span class="nb">12ヶ月の</span><span class="nb">期間満了を</span><span class="nb">もって</span><span class="nb">参加資格および</span><span class="nb">役務提供を</span><span class="nb">終了します</span></li>
             </ul>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"><span class="nb">役務提供期間</span></th>
+          <td>
+            <p class="td-lead"><span class="nb">本講座の</span><span class="nb">役務提供期間は、</span><strong><span class="nb">修了日</span><span class="nb">（最終受講日と</span><span class="nb">実技試験合格日の</span><span class="nb">いずれか</span><span class="nb">遅い日）の</span><span class="nb">翌日を</span><span class="nb">起算日</span></strong><span class="nb">とし、</span><span class="nb">下記の</span><span class="nb">とおりと</span><span class="nb">します。</span></p>
+            <ul>
+              <li><span class="nb">講座本編</span><span class="nb">（実技・座学）：</span><span class="nb">受講日当日</span><span class="nb">（1day＝計5.5時間／</span><span class="nb">2days＝計14時間）</span></li>
+              <li><span class="nb">技術フォロー：</span><span class="nb">起算日から</span><span class="nb">3ヶ月間</span></li>
+              <li><span class="nb">開業・導入サポート：</span><span class="nb">起算日から</span><span class="nb">3ヶ月間</span></li>
+              <li><span class="nb">開業支援</span><span class="nb">（開業支援付きプラン）：</span><span class="nb">起算日から</span><span class="nb">6ヶ月間</span></li>
+              <li><span class="nb">卒業生コミュニティ：</span><span class="nb">起算日から</span><span class="nb">12ヶ月間</span></li>
+            </ul>
+            <p class="td-note"><span class="nb">各期間の</span><span class="nb">満了を</span><span class="nb">もって</span><span class="nb">すべての</span><span class="nb">役務提供を</span><span class="nb">終了します。</span><span class="nb">期間満了後の</span><span class="nb">継続提供、</span><span class="nb">および</span><span class="nb">無期限の</span><span class="nb">提供は</span><span class="nb">行いません。</span></p>
           </td>
         </tr>
       </tbody>
@@ -945,6 +963,11 @@
   .lp .price-optdesc{ font-size:12px; opacity:.72; }
   .lp .price-amount{ font-family:var(--font-en); font-weight:700; font-size:clamp(26px,3.6vw,36px); line-height:1; color:#E7C989; letter-spacing:.01em; white-space:nowrap; }
   .lp .price-unit{ font-size:.4em; font-weight:600; margin-left:3px; letter-spacing:.04em; }
+  .lp .price-terms{ border:1px solid var(--gold-line); border-left:3px solid var(--gold); border-radius:4px; background:var(--surface); padding:clamp(18px,2.6vw,24px); margin:clamp(24px,3.2vw,30px) 0 0; }
+  .lp .price-terms-title{ font-family:var(--font-mincho); font-weight:600; font-size:15px; color:var(--shinchu); margin:0 0 10px; }
+  .lp .price-terms-line{ font-size:13px; line-height:1.9; margin:0 0 6px; opacity:.9; }
+  .lp .price-terms-line:last-child{ margin-bottom:0; }
+  .lp .price-terms-line strong{ font-weight:600; color:var(--shinchu); }
   .lp .price-note{ font-size:13px; opacity:.75; margin:clamp(22px,3vw,28px) 0 0; }
   .lp .price-cta{ text-align:center; margin:clamp(24px,3.5vw,34px) 0 0; }
   @media (max-width:767px){
@@ -956,7 +979,7 @@
   <div class="inner">
     <p class="eyebrow">PRICE</p>
     <h2 class="heading"><span class="nb">技術だけでも、</span><span class="nb">開業まで</span><span class="nb">丸ごとでも。</span></h2>
-    <p class="section-lead price-lead"><span class="nb">習得したい</span><span class="nb">範囲で</span><span class="nb">選べる</span><span class="nb">プラン。</span><span class="nb">「開業支援付き」は</span><span class="nb">メニュー設計・</span><span class="nb">集客導線・</span><span class="nb">初月サポートまで</span><span class="nb">含みます。</span></p>
+    <p class="section-lead price-lead"><span class="nb">習得したい</span><span class="nb">範囲で</span><span class="nb">選べる</span><span class="nb">プラン。</span><span class="nb">「開業支援付き」は</span><span class="nb">メニュー設計・</span><span class="nb">集客導線・</span><span class="nb">開業初期の</span><span class="nb">サポートまで</span><span class="nb">含みます。</span><span class="nb">開業支援の</span><span class="nb">役務提供期間は、</span><span class="nb">修了日の</span><span class="nb">翌日から</span><span class="nb">6ヶ月間です。</span></p>
     <div class="price-grid">
       <div class="price-card">
         <p class="price-name"><span class="nb">1day</span></p>
@@ -985,7 +1008,12 @@
         </ul>
       </div>
     </div>
-    <p class="price-note"><span class="nb">お支払い方法など</span><span class="nb">詳しくは</span><span class="nb">無料個別相談で</span><span class="nb">ご案内します。</span></p>
+    <div class="price-terms">
+      <p class="price-terms-title"><span class="nb">開業支援の</span><span class="nb">内容と</span><span class="nb">役務提供期間</span></p>
+      <p class="price-terms-line"><span class="nb">役務提供期間：</span><strong><span class="nb">修了日の</span><span class="nb">翌日から</span><span class="nb">6ヶ月間</span></strong><span class="nb">（期間満了を</span><span class="nb">もって</span><span class="nb">終了します。</span><span class="nb">延長・</span><span class="nb">無期限の</span><span class="nb">提供は</span><span class="nb">ありません）</span></p>
+      <p class="price-terms-line"><span class="nb">内容：</span><span class="nb">メニュー設計・</span><span class="nb">価格設計の</span><span class="nb">個別サポート／</span><span class="nb">集客導線</span><span class="nb">（SNS・予約導線）の</span><span class="nb">設計サポート／</span><span class="nb">サロン運用・</span><span class="nb">メニュー表記の</span><span class="nb">チェック／</span><span class="nb">オンライン個別面談</span></p>
+    </div>
+    <p class="price-note"><span class="nb">表示価格は</span><span class="nb">すべて</span><span class="nb">税込です。</span><span class="nb">お支払い方法など</span><span class="nb">詳しくは</span><span class="nb">無料個別相談で</span><span class="nb">ご案内します。</span></p>
     <div class="price-cta"><a class="cta-btn-img" href="#" aria-label="LINEで無料個別相談に参加する"></a></div>
   </div>
 </section>
@@ -1023,6 +1051,10 @@
         <summary class="faq-q">Q. <span class="nb">受講費用は</span><span class="nb">いくらですか？</span></summary>
         <p class="faq-a">A. <span class="nb">受講内容と</span><span class="nb">ご状況に</span><span class="nb">合った</span><span class="nb">プランを</span><span class="nb">ご案内するため、</span><span class="nb">費用は</span><span class="nb">無料個別相談にて</span><span class="nb">お伝えしています。</span><span class="nb">相談した</span><span class="nb">からといって</span><span class="nb">受講を</span><span class="nb">迫ることは</span><span class="nb">ありません。</span></p>
       </details>
+      <details class="faq-item">
+        <summary class="faq-q">Q. <span class="nb">サポートは</span><span class="nb">いつまで</span><span class="nb">受けられますか？</span></summary>
+        <p class="faq-a">A. <span class="nb">すべての</span><span class="nb">サポートは</span><span class="nb">修了日の</span><span class="nb">翌日を</span><span class="nb">起算日と</span><span class="nb">します。</span><span class="nb">技術フォローと</span><span class="nb">開業・導入サポートは</span><span class="nb">3ヶ月間、</span><span class="nb">開業支援は</span><span class="nb">6ヶ月間、</span><span class="nb">卒業生コミュニティは</span><span class="nb">12ヶ月間です。</span><span class="nb">各期間の</span><span class="nb">満了を</span><span class="nb">もって</span><span class="nb">提供を</span><span class="nb">終了します。</span><span class="nb">期間の</span><span class="nb">延長や</span><span class="nb">無期限の</span><span class="nb">サポートは</span><span class="nb">行っておりません。</span></p>
+      </details>
     </div>
   </div>
 </section>
@@ -1046,7 +1078,6 @@
       <p class="fv-caption"><span class="nb">性的なサービスは</span><span class="nb">一切含まない、</span><span class="nb">正規の</span><span class="nb">療術スクールです。</span></p>
     </div>
     <p class="footer-note">&copy; LEGACY</p>
-    <p class="footer-note"><span class="nb">特定商取引法に</span><span class="nb">基づく</span><span class="nb">表記：準備中</span></p>
   </div>
 </section>
 
