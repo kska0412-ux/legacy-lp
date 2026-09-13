@@ -1643,6 +1643,22 @@ src="https://www.facebook.com/tr?id=2975141262829631&ev=PageView&noscript=1"
   });
 })();
 </script>
+<script>
+/* Metaピクセル：LINE CTAクリックをLeadイベントとして送信 */
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll(
+    'a[href*="line.me"], a[href*="lin.ee"]'
+  ).forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', {
+          content_name: 'LEGACY_LINE_CTA'
+        });
+      }
+    });
+  });
+});
+</script>
 </div>
 </body>
 </html>
