@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>ジャップカサイ 1DAY LESSON｜LEGACY</title>
+  <style>
+    /* 色・フォントは本LP（legacy-lp/index.html）と soudan.html から移植 */
+    :root {
+      --tokiwa: #16403B;
+      --tokiwa-deep: #0C2723;
+      --byakuroku: #F4F6F0;
+      --seiji: #DFE8E1;
+      --sumi: #1F2B28;
+      --shinchu: #A9853C;
+      --gold: #A9853C;
+      --gold-bright: #E7C989;
+      --gold-line: rgba(169, 133, 60, .30);
+      --surface: #FBFCFA;
+      --shadow-soft: 0 1px 2px rgba(31, 43, 40, .05), 0 18px 40px -24px rgba(12, 39, 35, .22);
+      --font-mincho: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Yu Mincho", "YuMincho", "Noto Serif JP", "Noto Serif CJK JP", serif;
+      --font-gothic: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP", "Noto Sans CJK JP", sans-serif;
+      --font-en: "Avenir Next", "Helvetica Neue", Futura, Verdana, sans-serif;
+      --photo: url("__INSTRUCTOR_B64__");
+      --cta: url("__CTA_B64__");
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--sumi);
+      background: var(--seiji);
+      font-family: var(--font-gothic);
+      font-size: 15px;
+      letter-spacing: .02em;
+      line-height: 1.9;
+      line-break: strict;
+      word-break: keep-all;
+      overflow-wrap: normal;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    /* 禁則：文節単位で括り、改行は文節境界のみ */
+    .nb { display: inline-block; }
+
+    .site {
+      width: 100%;
+      max-width: 430px;
+      margin: 0 auto;
+      background: var(--byakuroku);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      position: relative;
+    }
+    .inner { max-width: 640px; margin: 0 auto; }
+    @media (min-width: 768px) {
+      /* PCは横長FVを見せるため枠を広げ、本文は640pxの段組みに収める */
+      .site { max-width: 1080px; margin: 30px auto; border-radius: 4px; box-shadow: 0 1px 2px rgba(31,43,40,.06), 0 30px 60px -30px rgba(12,39,35,.35); }
+    }
+
+    .section { position: relative; padding: 52px 22px; }
+    @media (min-width: 768px) { .section { padding: 72px 40px; } }
+    .bg-byakuroku { background: var(--byakuroku); }
+    .bg-seiji { background: var(--seiji); }
+    .bg-tokiwa {
+      overflow: hidden;
+      color: var(--byakuroku);
+      background: radial-gradient(125% 105% at 50% 0%, #1B4C46 0%, var(--tokiwa) 46%, var(--tokiwa-deep) 100%);
+    }
+    .bg-tokiwa > * { position: relative; z-index: 3; }
+
+    /* FV：SPは元バナー（ボタン部分を除く）、PCは横長に組み直した版 */
+    .fv { margin: 0; background: #07100c; }
+    .fv img { width: 100%; }
+    .fv-cta { padding: 26px 22px 34px; background: #07100c; }
+    .fv-cta .cta-wrap { margin-top: 0; }
+    .scarcity {
+      margin: 0 0 12px;
+      color: var(--gold-bright);
+      font-family: var(--font-mincho);
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-align: center;
+    }
+    .scarcity::before, .scarcity::after { content: "\2014"; margin: 0 .6em; opacity: .7; }
+
+    /* eyebrow（本LP準拠：欧文・金の刻み・またたき） */
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 0 0 12px;
+      color: var(--shinchu);
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--gold); opacity: .9; }
+    .eyebrow::after {
+      content: ""; width: 5px; height: 5px; border-radius: 50%; flex: none;
+      background: radial-gradient(circle, #F6E6B8 0%, rgba(169,133,60,.7) 42%, rgba(169,133,60,0) 72%);
+    }
+    .bg-tokiwa .eyebrow { color: var(--gold-bright); }
+    .bg-tokiwa .eyebrow::before { background: var(--gold-bright); }
+
+    .title {
+      margin: 0 0 26px;
+      color: var(--sumi);
+      font-family: var(--font-mincho);
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      line-height: 1.55;
+      text-align: center;
+    }
+    @media (min-width: 768px) { .title { font-size: 29px; } }
+    .bg-tokiwa .title { color: var(--byakuroku); }
+    .line { display: block; }
+    .cl { color: var(--shinchu); font-weight: 600; }
+    .bg-tokiwa .cl { color: var(--gold-bright); }
+    .hl { background: linear-gradient(transparent 58%, rgba(169,133,60,.30) 0); }
+    .lead { margin: 0; font-size: 15px; text-align: center; }
+    .lead + .lead { margin-top: 1em; }
+    .lead strong { color: var(--tokiwa); }
+
+    /* キラキラ（本LPの署名モチーフ） */
+    .sparkles { position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: hidden; }
+    .sparkles::before, .sparkles::after { content: ""; position: absolute; inset: 0; background-repeat: no-repeat; }
+    .sparkles::before {
+      background-image:
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%),
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%),
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%),
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%),
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%),
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%);
+      background-position: 8% 6%, 30% 4%, 88% 8%, 6% 94%, 62% 97%, 94% 90%;
+      background-size: 6px 6px, 4px 4px, 7px 7px, 5px 5px, 6px 6px, 4px 4px;
+    }
+    .sparkles::after {
+      background-image:
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%),
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%),
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%),
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%),
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%);
+      background-position: 18% 12%, 72% 5%, 96% 20%, 24% 98%, 80% 95%;
+      background-size: 5px 5px, 6px 6px, 4px 4px, 7px 7px, 5px 5px;
+    }
+    @keyframes twinkle { 0%, 100% { opacity: .30; } 50% { opacity: 1; } }
+    @media (prefers-reduced-motion: no-preference) {
+      .sparkles::before { animation: twinkle 3.4s ease-in-out infinite; }
+      .sparkles::after { animation: twinkle 4.3s ease-in-out infinite .9s; }
+      .eyebrow::after { animation: twinkle 3s ease-in-out infinite .4s; }
+    }
+
+    /* 悩みリスト（本LPの worry-item の ✓＋カード面） */
+    .check-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .check-list li {
+      position: relative;
+      padding: 13px 14px 13px 44px;
+      background: var(--surface);
+      border: 1px solid var(--gold-line);
+      border-radius: 3px;
+      box-shadow: var(--shadow-soft);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .check-list li::before {
+      content: "\2713";
+      position: absolute;
+      left: 14px;
+      top: 13px;
+      width: 20px;
+      color: var(--shinchu);
+      font-weight: 600;
+      text-align: center;
+    }
+    .after-list { margin: 26px 0 0; }
+
+    /* 健全性ブロック（本LPの金の縦帯） */
+    .notice {
+      margin: 26px 0 0;
+      padding: 20px 18px;
+      background: var(--surface);
+      border: 1px solid var(--gold-line);
+      border-left: 3px solid var(--gold);
+      border-radius: 3px;
+      box-shadow: var(--shadow-soft);
+      font-size: 14.5px;
+      line-height: 2;
+    }
+    .notice-title { margin: 0 0 6px; color: var(--tokiwa); font-family: var(--font-mincho); font-size: 16px; font-weight: 600; }
+    .notice p { margin: 0; }
+
+    /* 3つの特徴（バナーの丸バッジを移植） */
+    .points { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+    @media (min-width: 768px) { .points { grid-template-columns: repeat(3, 1fr); } }
+    .point {
+      padding: 22px 18px 20px;
+      background: var(--surface);
+      border: 1px solid var(--gold-line);
+      border-radius: 4px;
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+    }
+    .badge {
+      display: grid;
+      place-content: center;
+      width: 112px;
+      height: 112px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      color: var(--gold-bright);
+      background: radial-gradient(125% 105% at 50% 0%, #1B4C46 0%, var(--tokiwa) 50%, var(--tokiwa-deep) 100%);
+      box-shadow: 0 0 0 1px rgba(231,201,137,.55), 0 0 0 4px var(--surface), 0 0 0 5px var(--gold-line);
+      font-family: var(--font-mincho);
+      font-weight: 600;
+      line-height: 1.25;
+    }
+    .badge small { display: block; color: rgba(244,246,240,.85); font-size: 13px; letter-spacing: .06em; }
+    .badge b { display: block; font-size: 25px; letter-spacing: .04em; }
+    .point h3 { margin: 0 0 8px; color: var(--tokiwa); font-family: var(--font-mincho); font-size: 17px; font-weight: 600; line-height: 1.6; }
+    .point p { margin: 0; font-size: 14px; line-height: 1.85; text-align: left; }
+
+    /* カリキュラム */
+    .learn { margin: 0; padding: 6px 18px; list-style: none; background: var(--surface); border: 1px solid var(--gold-line); border-radius: 4px; box-shadow: var(--shadow-soft); counter-reset: learn; }
+    .learn li { position: relative; padding: 14px 0 14px 42px; font-size: 15px; line-height: 1.7; counter-increment: learn; }
+    .learn li + li { border-top: 1px solid rgba(169,133,60,.18); }
+    .learn li::before {
+      content: counter(learn, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 15px;
+      color: var(--shinchu);
+      font-family: var(--font-en);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .1em;
+    }
+
+    /* 開催概要 */
+    .outline { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--gold-line); box-shadow: var(--shadow-soft); }
+    .outline th, .outline td { padding: 15px 14px; border-bottom: 1px solid rgba(169,133,60,.2); vertical-align: top; text-align: left; font-size: 14.5px; line-height: 1.75; }
+    .outline tr:last-child th, .outline tr:last-child td { border-bottom: 0; }
+    .outline th { width: 6.6em; color: var(--tokiwa); background: rgba(223,232,225,.55); font-family: var(--font-mincho); font-weight: 600; white-space: nowrap; }
+    .date-row { display: block; }
+    .date-row + .date-row { margin-top: 4px; }
+    .date-row b { color: var(--tokiwa); font-family: var(--font-mincho); font-size: 17px; }
+    .price { color: var(--tokiwa); font-family: var(--font-mincho); font-size: 24px; font-weight: 600; line-height: 1.2; }
+    .price small { font-size: 13px; }
+    .todo { color: #9a6b12; }
+
+    /* 講師 */
+    .msg-photo {
+      width: min(58%, 220px);
+      aspect-ratio: 1;
+      margin: 4px auto 18px;
+      border-radius: 50%;
+      background: #fff var(--photo) center / cover no-repeat;
+      box-shadow: 0 0 0 1px var(--gold-line), 0 0 0 6px var(--byakuroku), 0 0 0 7px var(--gold-line), var(--shadow-soft);
+    }
+    .inst-name { margin: 0; text-align: center; }
+    .inst-name span { display: block; color: var(--shinchu); font-size: 11px; font-weight: 600; letter-spacing: .12em; }
+    .inst-name b { color: var(--tokiwa); font-family: var(--font-mincho); font-size: 23px; font-weight: 600; letter-spacing: .2em; }
+    .record { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 20px 0 22px; padding: 0; list-style: none; text-align: center; }
+    .record li { padding: 12px 4px 10px; background: var(--surface); border: 1px solid var(--gold-line); border-radius: 3px; font-size: 11.5px; line-height: 1.5; }
+    .record b { display: block; color: var(--tokiwa); font-family: var(--font-mincho); font-size: 22px; font-weight: 600; line-height: 1.3; }
+    .record b small { font-size: 12px; }
+    .message-block {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--gold-line);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      box-shadow: var(--shadow-soft);
+      padding: 22px 20px;
+      overflow: hidden;
+    }
+    .message-block::before {
+      content: "\201C";
+      position: absolute;
+      top: 2px;
+      right: 14px;
+      font-family: var(--font-mincho);
+      font-size: 66px;
+      line-height: 1;
+      color: var(--gold);
+      opacity: .14;
+      pointer-events: none;
+    }
+    .message-block p { position: relative; margin: 0; font-size: 15px; line-height: 2; }
+
+    /* 申し込みの流れ */
+    .flow { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+    .flow li {
+      position: relative;
+      padding: 16px 16px 16px 66px;
+      background: var(--surface);
+      border: 1px solid var(--gold-line);
+      border-radius: 4px;
+      box-shadow: var(--shadow-soft);
+      font-size: 14.5px;
+      line-height: 1.75;
+    }
+    .flow li b { display: block; color: var(--tokiwa); font-family: var(--font-mincho); font-size: 16px; }
+    .flow li::before {
+      content: "STEP\A" attr(data-step);
+      white-space: pre;
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      color: var(--shinchu);
+      font-family: var(--font-en);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      line-height: 1.3;
+      text-align: center;
+    }
+
+    /* FAQ */
+    .faq { display: grid; gap: 10px; }
+    .faq details { background: var(--surface); border: 1px solid var(--gold-line); border-radius: 4px; box-shadow: var(--shadow-soft); }
+    .faq summary { position: relative; padding: 15px 42px 15px 16px; color: var(--tokiwa); font-family: var(--font-mincho); font-size: 15.5px; font-weight: 600; line-height: 1.7; cursor: pointer; list-style: none; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; position: absolute; right: 16px; top: 13px; color: var(--shinchu); font-family: var(--font-en); font-size: 20px; }
+    .faq details[open] summary::after { content: "\2212"; }
+    .faq p { margin: 0; padding: 0 16px 16px; font-size: 14.5px; line-height: 1.9; }
+
+    /* CTA：本LPの画像ボタンの枠・LINEマーク・矢印をそのまま使い、文言だけHTMLで重ねる */
+    .cta-wrap { margin: 30px 0 0; text-align: center; }
+    .cta-btn {
+      position: relative;
+      display: block;
+      width: 100%;
+      max-width: 520px;
+      aspect-ratio: 920 / 190;
+      margin: 0 auto;
+      container-type: inline-size;
+      background: center / contain no-repeat var(--cta);
+      border-radius: 6px;
+      color: #F7F3EA;
+      text-decoration: none;
+      filter: drop-shadow(0 8px 14px rgba(12, 39, 35, .26));
+      transform: translateY(0);
+      transition: transform .16s ease, filter .16s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .cta-txt {
+      position: absolute;
+      left: 26.5%;
+      right: 6.4%;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .1em;
+      font-family: var(--font-mincho);
+      font-size: 4.5cqw;
+      font-weight: 600;
+      letter-spacing: .02em;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .cta-txt b {
+      font-size: 6.1cqw;
+      font-weight: 600;
+      letter-spacing: .01em;
+      background: linear-gradient(180deg, #FBF1CF 0%, #EDD08A 42%, #C9A04E 70%, #E9CB85 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .cta-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 0 26%, rgba(255, 255, 255, .30) 46%, transparent 66% 100%) no-repeat;
+      background-size: 60% 100%;
+      background-position: -150% 0;
+      -webkit-mask: center / contain no-repeat var(--cta);
+      mask: center / contain no-repeat var(--cta);
+      animation: cta-shine 3.6s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes cta-shine {
+      0% { background-position: -150% 0; }
+      46% { background-position: 250% 0; }
+      100% { background-position: 250% 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .cta-btn::before, .eyebrow::after, .sparkles::before, .sparkles::after { animation: none; }
+    }
+    .cta-btn:hover { transform: translateY(-2px); filter: drop-shadow(0 12px 18px rgba(12, 39, 35, .32)) brightness(1.06); }
+    .cta-btn:active { transform: translateY(3px); filter: drop-shadow(0 3px 6px rgba(12, 39, 35, .24)) brightness(.97); }
+    .cta-btn:focus-visible { outline: 2px solid var(--shinchu); outline-offset: 3px; }
+    .cta-note { margin: 12px 0 0; color: rgba(31, 43, 40, .7); font-size: 11.5px; text-align: center; }
+    .bg-tokiwa .cta-note, .fv-cta .cta-note { color: rgba(244, 246, 240, .7); }
+    .final-body { margin: 0; font-size: 15px; text-align: center; }
+    .final-body + .final-body { margin-top: 1em; }
+    .final-dates { margin: 22px auto 0; padding: 14px 10px; max-width: 420px; border-top: 1px solid rgba(231,201,137,.45); border-bottom: 1px solid rgba(231,201,137,.45); font-family: var(--font-mincho); font-size: 15px; line-height: 1.9; text-align: center; }
+    .final-dates b { color: var(--gold-bright); font-size: 18px; }
+
+    .ft {
+      padding: 26px 22px 34px;
+      color: rgba(244, 246, 240, .7);
+      background: var(--tokiwa-deep);
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-align: center;
+    }
+    .ft p { margin: 0; }
+    .ft p + p { margin-top: 8px; font-family: var(--font-en); letter-spacing: .14em; }
+
+    @media (max-width: 370px) {
+      .section { padding: 44px 18px; }
+      .title { font-size: 22px; }
+      .outline th { width: 5.6em; padding: 13px 10px; }
+      .outline td { padding: 13px 10px; }
+    }
+  </style>
+  <!-- Meta Pixel Code（本LPと同一ID） -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2975141262829631');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2975141262829631&amp;ev=PageView&amp;noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+<body>
+  <main class="site">
+
+    <!-- FV：SP＝元バナー（下部ボタンを除く）／PC＝横長版 -->
+    <h1 class="fv">
+      <picture>
+        <source media="(min-width: 768px)" srcset="__FV_WIDE_B64__" width="2160" height="1080">
+        <img src="__FV_SP_B64__" width="1254" height="1116" alt="LEGACY 客単価30,000円を叶える ジャップカサイ 1DAY LESSON。1day4時間、客単価3万円〜、現役講師が直接指導。料金4万円。開催日程 10月20日（月）・10月22日（水）いずれも10:00〜14:00。">
+      </picture>
+    </h1>
+    <div class="fv-cta">
+      <p class="scarcity">各日程 残席わずか</p>
+      <div class="cta-wrap">
+        <a class="cta-btn" href="https://line.me/R/ti/p/%40483vhbki" aria-label="LINEで1DAY LESSONに申し込む"><span class="cta-txt"><b>1DAY LESSON</b>に申し込む</span></a>
+        <p class="cta-note">※ボタンを押すと、LINEが開きます。</p>
+      </div>
+    </div>
+
+    <!-- 悩み -->
+    <section class="section bg-seiji">
+      <div class="inner">
+        <p class="eyebrow">Problem</p>
+        <h2 class="title">
+          <span class="line">こんな行き詰まりを</span>
+          <span class="line">感じていませんか？</span>
+        </h2>
+        <ul class="check-list">
+          <li><span class="nb">どのメニューも</span><span class="nb">近隣サロンと</span><span class="nb">横並びで、</span><span class="nb">価格でしか</span><span class="nb">選ばれない</span></li>
+          <li><span class="nb">客単価を</span><span class="nb">上げたいが、</span><span class="nb">値上げは</span><span class="nb">お客様離れが</span><span class="nb">怖い</span></li>
+          <li><span class="nb">広告費を</span><span class="nb">かけても、</span><span class="nb">来るのは</span><span class="nb">クーポン目当ての</span><span class="nb">一見客ばかり</span></li>
+          <li><span class="nb">技術には</span><span class="nb">自信があるのに、</span><span class="nb">売上が</span><span class="nb">見合っていない</span></li>
+        </ul>
+        <p class="lead after-list"><span class="nb">原因は</span><span class="nb">技術不足では</span><span class="nb">ありません。</span><span class="nb"><strong>「同じ市場で、</strong></span><span class="nb"><strong>同じメニューで</strong></span><span class="nb"><strong>戦っていること」</strong>です。</span></p>
+      </div>
+    </section>
+
+    <!-- ジャップカサイとは -->
+    <section class="section bg-byakuroku">
+      <div class="inner">
+        <p class="eyebrow">What is Jap Kasai</p>
+        <h2 class="title">
+          <span class="line">競合が少なく高単価</span>
+          <span class="line"><span class="cl">『ジャップカサイ』</span>という</span>
+          <span class="line">新しい武器</span>
+        </h2>
+        <p class="lead"><span class="nb">ジャップカサイは、</span><span class="nb">タイに</span><span class="nb">約2500年伝わる</span><span class="nb">男性向けの</span><span class="nb">伝統療術。</span><span class="nb">タイ古式マッサージの</span><span class="nb">正統な</span><span class="nb">一分野です。</span></p>
+        <p class="lead"><span class="nb">日本では</span><span class="nb">提供できるサロンが</span><span class="nb">ごくわずか。</span><strong><span class="nb">特に</span><span class="nb">女性セラピストによる</span><span class="nb">施術は、</span><span class="nb">探しても</span><span class="nb">見つからないのが</span><span class="nb">現状です。</span></strong></p>
+        <div class="notice">
+          <p class="notice-title"><span class="nb">はじめに、</span><span class="nb">はっきり</span><span class="nb">お伝えします。</span></p>
+          <p><span class="nb">ジャップカサイは</span><span class="nb">性的なサービスとは</span><span class="nb">一切</span><span class="nb">関係ありません。</span><span class="nb">解剖学に基づく</span><span class="nb">施術手順・</span><span class="nb">着衣と</span><span class="nb">タオルワークの</span><span class="nb">規定まで</span><span class="nb">含めて</span><span class="nb">指導します。</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1DAY LESSONの特徴（バナーの3バッジ） -->
+    <section class="section bg-seiji">
+      <div class="inner">
+        <p class="eyebrow">1Day Lesson</p>
+        <h2 class="title">
+          <span class="line">1DAY LESSONの</span>
+          <span class="line"><span class="cl">3つの特徴</span></span>
+        </h2>
+        <ul class="points">
+          <li class="point">
+            <div class="badge" aria-hidden="true"><small>1day</small><b>4時間</b></div>
+            <h3><span class="nb">1日4時間で</span><span class="nb">習得</span></h3>
+            <p><span class="nb">10:00〜14:00の</span><span class="nb">4時間で、</span><span class="nb">ジャップカサイの</span><span class="nb">理論と</span><span class="nb">実技を</span><span class="nb">集中して</span><span class="nb">学びます。</span><span class="nb">お店を</span><span class="nb">長く</span><span class="nb">空けずに</span><span class="nb">受講できます。</span></p>
+          </li>
+          <li class="point">
+            <div class="badge" aria-hidden="true"><small>客単価</small><b>3万円〜</b></div>
+            <h3><span class="nb">客単価3万円を</span><span class="nb">目指せる</span></h3>
+            <p><span class="nb">希少な技術だから</span><span class="nb">価格競争と</span><span class="nb">無縁。</span><span class="nb">値引きや</span><span class="nb">クーポンに</span><span class="nb">頼らない</span><span class="nb">高単価メニューを</span><span class="nb">持てます。</span></p>
+          </li>
+          <li class="point">
+            <div class="badge" aria-hidden="true"><small>現役講師が</small><b>直接指導</b></div>
+            <h3><span class="nb">現役セラピストが</span><span class="nb">手元まで</span><span class="nb">確認</span></h3>
+            <p><span class="nb">3店舗を</span><span class="nb">運営する</span><span class="nb">講師</span><span class="nb">竪元が、</span><span class="nb">圧のかけ方や</span><span class="nb">手の感覚まで</span><span class="nb">直接</span><span class="nb">確認します。</span><span class="nb">動画教材に</span><span class="nb">丸投げしません。</span></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 学べること -->
+    <section class="section bg-byakuroku">
+      <div class="inner">
+        <p class="eyebrow">Curriculum</p>
+        <h2 class="title">
+          <span class="line">1日で</span>
+          <span class="line"><span class="cl">学べること</span></span>
+        </h2>
+        <!-- 【要確認】本LPのカリキュラム（1day＝計5.5時間）から転記。4時間版の内容に合わせて調整 -->
+        <ol class="learn">
+          <li><span class="nb">解剖学の</span><span class="nb">基礎</span></li>
+          <li><span class="nb">ジャップカサイの</span><span class="nb">理論と</span><span class="nb">歴史</span></li>
+          <li><span class="nb">実技</span><span class="nb">（手順・圧・</span><span class="nb">タオルワーク）</span></li>
+          <li><span class="nb">カウンセリングと</span><span class="nb">禁忌の</span><span class="nb">判断</span></li>
+          <li><span class="nb">健全性を守る</span><span class="nb">サロン運用・</span><span class="nb">メニュー表記・</span><span class="nb">価格設計</span></li>
+        </ol>
+        <p class="lead after-list"><span class="nb">「技術を</span><span class="nb">教えて</span><span class="nb">終わり」には</span><span class="nb">しません。</span><span class="nb"><strong class="hl">あなたの</strong></span><span class="nb"><strong class="hl">サロンで</strong></span><span class="nb"><strong class="hl">売上になるまで</strong>を</span><span class="nb">見据えて</span><span class="nb">お伝えします。</span></p>
+      </div>
+    </section>
+
+    <!-- 開催概要 -->
+    <section class="section bg-seiji">
+      <div class="inner">
+        <p class="eyebrow">Outline</p>
+        <h2 class="title"><span class="line">開催概要</span></h2>
+        <table class="outline">
+          <tbody>
+            <tr>
+              <th scope="row">開催日程</th>
+              <!-- 【要確認】2026年の10/20は火曜、10/22は木曜。バナーの曜日（月・水）は2025年のもの -->
+              <td>
+                <span class="date-row"><b>10/20（月）</b>　<span class="nb">10:00〜14:00</span></span>
+                <span class="date-row"><b>10/22（水）</b>　<span class="nb">10:00〜14:00</span></span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">受講時間</th>
+              <td><span class="nb">4時間</span></td>
+            </tr>
+            <tr>
+              <th scope="row">受講料</th>
+              <td><span class="price">4<small>万円</small></span><span class="nb">（税込）</span></td>
+            </tr>
+            <tr>
+              <th scope="row">講師</th>
+              <td><span class="nb">竪元美帆</span><span class="nb">（LEGACY主宰）</span></td>
+            </tr>
+            <tr>
+              <th scope="row">対象</th>
+              <td><span class="nb">エステ・</span><span class="nb">リラクゼーションの</span><span class="nb">セラピスト、</span><span class="nb">サロンオーナー</span><span class="nb">（男性向け施術が</span><span class="nb">未経験でも</span><span class="nb">受講できます）</span></td>
+            </tr>
+            <tr>
+              <th scope="row">会場</th>
+              <!-- 【要確認】会場が決まっていれば記載 -->
+              <td><span class="nb">お申し込み後に</span><span class="nb">LINEで</span><span class="nb">ご案内します</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="cta-wrap">
+          <a class="cta-btn" href="https://line.me/R/ti/p/%40483vhbki" aria-label="LINEで1DAY LESSONに申し込む"><span class="cta-txt"><b>1DAY LESSON</b>に申し込む</span></a>
+          <p class="cta-note">※ボタンを押すと、LINEが開きます。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 講師 -->
+    <section class="section bg-byakuroku">
+      <div class="inner">
+        <p class="eyebrow">Instructor</p>
+        <h2 class="title">
+          <span class="line">教えるのは、</span>
+          <span class="line">現役のセラピストです</span>
+        </h2>
+        <figure class="msg-photo" role="img" aria-label="LEGACY主宰 竪元美帆"></figure>
+        <p class="inst-name"><span>LEGACY主宰／サロンオーナー</span><b>竪元 美帆</b></p>
+        <ul class="record">
+          <li><b>950<small>人</small></b><span class="nb">年間</span><span class="nb">リピーター</span></li>
+          <li><b>3<small>店舗</small></b><span class="nb">サロン</span><span class="nb">運営</span></li>
+          <li><b>4.5<small>年</small></b><span class="nb">セラピスト</span><span class="nb">歴</span></li>
+        </ul>
+        <div class="message-block">
+          <p><span class="nb">ジャップカサイを</span><span class="nb">学べるスクールも、</span><span class="nb">受けられるサロンも、</span><span class="nb">まだ</span><span class="nb">多くありません。</span><span class="nb">だからこそ、</span><span class="nb">一時的に</span><span class="nb">選ばれるだけでなく、</span><span class="nb"><span class="hl">長く信頼され、</span></span><span class="nb"><span class="hl">リピートされる</span></span><span class="nb"><span class="hl">サロン</span>を</span><span class="nb">増やしたい。</span><span class="nb">その第一歩として、</span><span class="nb">1日で</span><span class="nb">しっかり</span><span class="nb">お伝えします。</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 申し込みの流れ -->
+    <section class="section bg-seiji">
+      <div class="inner">
+        <p class="eyebrow">Flow</p>
+        <h2 class="title"><span class="line">お申し込みの流れ</span></h2>
+        <!-- 【要確認】実際の受付手順に合わせて調整 -->
+        <ol class="flow">
+          <li data-step="01"><b>LINEを友だち追加</b><span class="nb">下のボタンから</span><span class="nb">LEGACY公式LINEを</span><span class="nb">追加します。</span></li>
+          <li data-step="02"><b>希望日程を送信</b><span class="nb">「10/20」または</span><span class="nb">「10/22」と、</span><span class="nb">ご希望の日程を</span><span class="nb">メッセージで</span><span class="nb">お送りください。</span></li>
+          <li data-step="03"><b>受講のご案内</b><span class="nb">会場・</span><span class="nb">持ち物・</span><span class="nb">お支払い方法を</span><span class="nb">LINEで</span><span class="nb">ご案内します。</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section bg-byakuroku">
+      <div class="inner">
+        <p class="eyebrow">FAQ</p>
+        <h2 class="title"><span class="line">よくあるご質問</span></h2>
+        <div class="faq">
+          <details>
+            <summary><span class="nb">男性向けの</span><span class="nb">施術は</span><span class="nb">未経験です。</span><span class="nb">大丈夫ですか？</span></summary>
+            <p><span class="nb">はい。</span><span class="nb">受講生の</span><span class="nb">ほとんどが</span><span class="nb">男性向け施術は</span><span class="nb">初めてです。</span><span class="nb">手技の</span><span class="nb">土台があれば</span><span class="nb">十分</span><span class="nb">習得できます。</span></p>
+          </details>
+          <details>
+            <summary><span class="nb">50代でも</span><span class="nb">学べますか？</span></summary>
+            <p><span class="nb">学べます。</span><span class="nb">強い力を</span><span class="nb">使わない</span><span class="nb">手技のため、</span><span class="nb">年齢や</span><span class="nb">体格に</span><span class="nb">左右されません。</span><span class="nb">卒業生には</span><span class="nb">50代の方も</span><span class="nb">多く</span><span class="nb">いらっしゃいます。</span></p>
+          </details>
+          <details>
+            <summary><span class="nb">男性に</span><span class="nb">施術することに、</span><span class="nb">まだ</span><span class="nb">抵抗があります。</span></summary>
+            <p><span class="nb">自然な</span><span class="nb">お気持ちです。</span><span class="nb">だからこそ</span><span class="nb">着衣・</span><span class="nb">タオルワーク・</span><span class="nb">カウンセリングの</span><span class="nb">規定を</span><span class="nb">最初に</span><span class="nb">学びます。</span><span class="nb">多くの受講生が</span><span class="nb">「規定を知って</span><span class="nb">不安が消えた」と</span><span class="nb">話します。</span></p>
+          </details>
+          <details>
+            <summary><span class="nb">家族や</span><span class="nb">常連のお客様に</span><span class="nb">どう説明すれば？</span></summary>
+            <p><span class="nb">性的サービスは</span><span class="nb">一切含まない、</span><span class="nb">タイの</span><span class="nb">伝統療術です。</span><span class="nb">周囲への</span><span class="nb">説明の仕方・</span><span class="nb">メニューの</span><span class="nb">表記方法まで</span><span class="nb">講座内で</span><span class="nb">お伝えします。</span></p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 最終CTA -->
+    <section class="section bg-tokiwa">
+      <div class="sparkles" aria-hidden="true"></div>
+      <div class="inner">
+        <p class="eyebrow">Entry</p>
+        <h2 class="title">
+          <span class="line">高単価メニューへの</span>
+          <span class="line"><span class="cl">第一歩を、</span>1日で。</span>
+        </h2>
+        <p class="final-body"><span class="nb">少人数で</span><span class="nb">行うため、</span><span class="nb">各日程の</span><span class="nb">枠には</span><span class="nb">限りが</span><span class="nb">あります。</span><span class="nb">気になった</span><span class="nb">今のうちに、</span><span class="nb">LINEで</span><span class="nb">お申し込みください。</span></p>
+        <p class="final-dates">
+          <span class="nb"><b>10/20（月）</b>・<b>10/22（水）</b></span><br>
+          <span class="nb">10:00〜14:00</span>　<span class="nb">受講料 4万円（税込）</span>
+        </p>
+        <div class="cta-wrap">
+          <a class="cta-btn" href="https://line.me/R/ti/p/%40483vhbki" aria-label="LINEで1DAY LESSONに申し込む"><span class="cta-txt"><b>1DAY LESSON</b>に申し込む</span></a>
+          <p class="cta-note">※ボタンを押すと、LINEが開きます。</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="ft">
+      <p><span class="nb">性的なサービスは</span><span class="nb">一切含まない、</span><span class="nb">正規の</span><span class="nb">療術スクールです。</span></p>
+      <p>&copy; LEGACY</p>
+    </footer>
+  </main>
+
+  <script>
+    /* 申し込みクリックをMetaピクセルのLeadとして送信 */
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest('a[href*="line.me"],a[href*="lin.ee"]');
+      if (a && typeof fbq === "function") {
+        fbq("track", "Lead", { content_name: "LEGACY_1DAY_CTA" });
+      }
+    }, true);
+  </script>
+</body>
+</html>
