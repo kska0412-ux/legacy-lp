@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>無料個別相談のご案内｜LEGACY ジャップカサイ技術スクール</title>
+  <style>
+    /* 色・フォントは本LP（legacy-lp/index.html）の :root と Elevation layer から移植 */
+    :root {
+      --tokiwa: #16403B;
+      --tokiwa-deep: #0C2723;
+      --byakuroku: #F4F6F0;
+      --seiji: #DFE8E1;
+      --seiji-dark: #B9C7BC;
+      --sumi: #1F2B28;
+      --shinchu: #A9853C;
+      --gold: #A9853C;
+      --gold-bright: #E7C989;
+      --gold-line: rgba(169, 133, 60, .30);
+      --surface: #FBFCFA;
+      --shadow-soft: 0 1px 2px rgba(31, 43, 40, .05), 0 18px 40px -24px rgba(12, 39, 35, .22);
+      --font-mincho: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Yu Mincho", "YuMincho", "Noto Serif JP", "Noto Serif CJK JP", serif;
+      --font-gothic: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP", "Noto Sans CJK JP", sans-serif;
+      --font-en: "Avenir Next", "Helvetica Neue", Futura, Verdana, sans-serif;
+      --photo: url("__INSTRUCTOR_B64__");
+      --cta: url("__CTA_B64__");
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--sumi);
+      background: var(--seiji);
+      font-family: var(--font-gothic);
+      font-weight: 400;
+      font-size: 15px;
+      letter-spacing: .02em;
+      line-height: 1.9;
+      line-break: strict;
+      word-break: keep-all;
+      overflow-wrap: normal;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+    img { display: block; max-width: 100%; }
+    /* 禁則：文節単位で括り、改行は文節境界のみ */
+    .nb { display: inline-block; }
+
+    .site {
+      width: 100%;
+      max-width: 430px;
+      margin: 0 auto;
+      background: var(--byakuroku);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      position: relative;
+    }
+    @media (min-width: 720px) {
+      .site { margin: 30px auto; border-radius: 4px; box-shadow: 0 1px 2px rgba(31,43,40,.06), 0 30px 60px -30px rgba(12,39,35,.35); }
+    }
+
+    .section { position: relative; padding: 48px 22px; }
+    .bg-byakuroku { background: var(--byakuroku); }
+    .bg-seiji { background: var(--seiji); }
+    .bg-tokiwa {
+      position: relative;
+      overflow: hidden;
+      color: var(--byakuroku);
+      background: radial-gradient(125% 105% at 50% 0%, #1B4C46 0%, var(--tokiwa) 46%, var(--tokiwa-deep) 100%);
+    }
+    .bg-tokiwa > * { position: relative; z-index: 3; }
+
+    /* eyebrow（本LP準拠：欧文・金の刻み・またたき） */
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 0 0 12px;
+      color: var(--shinchu);
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--gold); opacity: .9; }
+    .eyebrow::after {
+      content: ""; width: 5px; height: 5px; border-radius: 50%; flex: none;
+      background: radial-gradient(circle, #F6E6B8 0%, rgba(169,133,60,.7) 42%, rgba(169,133,60,0) 72%);
+    }
+    .bg-tokiwa .eyebrow { color: var(--gold-bright); }
+    .bg-tokiwa .eyebrow::before { background: var(--gold-bright); }
+
+    .title {
+      margin: 0 0 24px;
+      color: var(--sumi);
+      font-family: var(--font-mincho);
+      font-size: 25px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      line-height: 1.5;
+      text-align: center;
+    }
+    .bg-tokiwa .title { color: var(--byakuroku); }
+    .line { display: block; }
+    .cl { color: var(--shinchu); font-weight: 600; }
+    .bg-tokiwa .cl { color: var(--gold-bright); }
+    .hl { background: linear-gradient(transparent 58%, rgba(169,133,60,.30) 0); }
+    .bg-tokiwa .hl { background: linear-gradient(transparent 58%, rgba(231,201,137,.32) 0); }
+    .lead { margin: 0; font-size: 15px; text-align: center; }
+
+    /* キラキラ（本LPの署名モチーフ・点数を減らして移植） */
+    .sparkles { position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: hidden; }
+    .sparkles::before, .sparkles::after { content: ""; position: absolute; inset: 0; background-repeat: no-repeat; }
+    .sparkles::before {
+      background-image:
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%),
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%),
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%),
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%),
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%),
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%);
+      background-position: 8% 6%, 30% 4%, 88% 8%, 6% 94%, 62% 97%, 94% 90%;
+      background-size: 6px 6px, 4px 4px, 7px 7px, 5px 5px, 6px 6px, 4px 4px;
+    }
+    .sparkles::after {
+      background-image:
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%),
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%),
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%),
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%),
+        radial-gradient(circle, #FFFBEF 0%, #F3DD9A 36%, rgba(231,201,137,0) 72%);
+      background-position: 18% 12%, 72% 5%, 96% 20%, 24% 98%, 80% 95%;
+      background-size: 5px 5px, 6px 6px, 4px 4px, 7px 7px, 5px 5px;
+    }
+    @keyframes twinkle { 0%, 100% { opacity: .30; } 50% { opacity: 1; } }
+    @media (prefers-reduced-motion: no-preference) {
+      .sparkles::before { animation: twinkle 3.4s ease-in-out infinite; }
+      .sparkles::after { animation: twinkle 4.3s ease-in-out infinite .9s; }
+      .eyebrow::after { animation: twinkle 3s ease-in-out infinite .4s; }
+    }
+
+    /* ① 注意書き（本LPの健全性ブロック＝金の縦帯） */
+    .notice {
+      margin: 0;
+      padding: 18px 16px;
+      background: var(--surface);
+      border: 1px solid var(--gold-line);
+      border-left: 3px solid var(--gold);
+      border-radius: 3px;
+      box-shadow: var(--shadow-soft);
+      color: var(--sumi);
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 2;
+      text-align: center;
+    }
+    .notice .cg { color: var(--tokiwa); }
+
+    /* ② カウントダウン */
+    .limit { margin: 28px 0 0; text-align: center; }
+    .limit p { margin: 0 0 12px; font-size: 14px; }
+    .timer { display: flex; justify-content: center; gap: 8px; }
+    .timer b {
+      display: block;
+      min-width: 68px;
+      padding: 11px 6px 9px;
+      border: 1px solid rgba(231, 201, 137, .45);
+      border-radius: 3px;
+      color: var(--gold-bright);
+      background: radial-gradient(125% 105% at 50% 0%, #1B4C46 0%, var(--tokiwa) 50%, var(--tokiwa-deep) 100%);
+      box-shadow: var(--shadow-soft);
+      font-family: var(--font-en);
+      font-size: 26px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.1;
+    }
+    .timer b small {
+      display: block;
+      margin-top: 5px;
+      color: rgba(244, 246, 240, .62);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .22em;
+    }
+
+    /* ③ 動画（フルブリード） */
+    .video {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      margin: 0 -22px;
+      background: #081a17;
+      overflow: hidden;
+    }
+    .video iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+    .video-wait { position: absolute; inset: 0; display: grid; place-items: center; }
+    .video-wait i {
+      display: block;
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 12px;
+      border: 1px solid rgba(231, 201, 137, .8);
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 50%, rgba(231, 201, 137, .24) 0 30%, transparent 31%);
+    }
+    .video-wait p {
+      margin: 0;
+      color: rgba(244, 246, 240, .66);
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .32em;
+      text-align: center;
+    }
+
+    /* ④ チェックリスト（本LPの worry-item の ✓＋カード面） */
+    .check-list { display: grid; gap: 10px; margin: 24px 0 0; padding: 0; list-style: none; }
+    .check-list li {
+      position: relative;
+      padding: 13px 14px 13px 44px;
+      background: var(--surface);
+      border: 1px solid var(--gold-line);
+      border-radius: 3px;
+      box-shadow: var(--shadow-soft);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .check-list li::before {
+      content: "\2713";
+      position: absolute;
+      left: 14px;
+      top: 13px;
+      width: 20px;
+      color: var(--shinchu);
+      font-weight: 600;
+      text-align: center;
+    }
+    .small-note { margin: 16px 0 0; color: rgba(31, 43, 40, .72); font-size: 12px; line-height: 1.9; }
+
+    /* CTA：本LPの画像ボタン（cta-btn-img）を移植＋自動シャイン・hover浮き・active沈み */
+    .cta-wrap { margin: 28px 0 0; text-align: center; }
+    .cta-btn {
+      position: relative;
+      display: block;
+      width: 100%;
+      aspect-ratio: 920 / 190;
+      margin: 0 auto;
+      background: center / contain no-repeat var(--cta);
+      border-radius: 6px;
+      filter: drop-shadow(0 8px 14px rgba(12, 39, 35, .26));
+      transform: translateY(0);
+      transition: transform .16s ease, filter .16s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .cta-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 0 26%, rgba(255, 255, 255, .34) 46%, transparent 66% 100%) no-repeat;
+      background-size: 60% 100%;
+      background-position: -150% 0;
+      -webkit-mask: center / contain no-repeat var(--cta);
+      mask: center / contain no-repeat var(--cta);
+      animation: cta-shine 3.6s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes cta-shine {
+      0% { background-position: -150% 0; }
+      46% { background-position: 250% 0; }
+      100% { background-position: 250% 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .cta-btn::before { animation: none; }
+      .eyebrow::after, .sparkles::before, .sparkles::after { animation: none; }
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      filter: drop-shadow(0 12px 18px rgba(12, 39, 35, .32)) brightness(1.06);
+    }
+    .cta-btn:active {
+      transform: translateY(3px);
+      filter: drop-shadow(0 3px 6px rgba(12, 39, 35, .24)) brightness(.97);
+    }
+    .cta-btn:focus-visible { outline: 2px solid var(--shinchu); outline-offset: 3px; }
+    .cta-note { margin: 12px 0 0; color: rgba(31, 43, 40, .7); font-size: 11.5px; text-align: center; }
+    .bg-tokiwa .cta-note { color: rgba(244, 246, 240, .7); }
+
+    /* ⑤ Message（本LPの message-block＋円形講師写真） */
+    .msg-photo {
+      width: min(62%, 240px);
+      aspect-ratio: 1;
+      margin: 4px auto 24px;
+      border-radius: 50%;
+      background: #fff var(--photo) center / cover no-repeat;
+      box-shadow: 0 0 0 1px var(--gold-line), 0 0 0 6px var(--byakuroku), 0 0 0 7px var(--gold-line), var(--shadow-soft);
+    }
+    .message-block {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--gold-line);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      box-shadow: var(--shadow-soft);
+      padding: 24px 20px;
+      overflow: hidden;
+    }
+    .message-block::before {
+      content: "\201C";
+      position: absolute;
+      top: 2px;
+      right: 14px;
+      font-family: var(--font-mincho);
+      font-size: 66px;
+      line-height: 1;
+      color: var(--gold);
+      opacity: .14;
+      pointer-events: none;
+    }
+    .message-block p { position: relative; margin: 0 0 1.3em; font-size: 15px; line-height: 2; }
+    .message-block p:last-of-type { margin-bottom: 0; }
+    .sign { margin-top: 22px; text-align: right; }
+    .sign span {
+      display: block;
+      color: var(--shinchu);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+    }
+    .sign b {
+      color: var(--tokiwa);
+      font-family: var(--font-mincho);
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: .2em;
+    }
+
+    .ft {
+      padding: 26px 22px 34px;
+      color: rgba(244, 246, 240, .7);
+      background: var(--tokiwa-deep);
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-align: center;
+    }
+    .ft p { margin: 0; }
+    .ft p + p { margin-top: 8px; font-family: var(--font-en); letter-spacing: .14em; }
+
+    @media (max-width: 370px) {
+      .section { padding: 42px 18px; }
+      .title { font-size: 23px; }
+      .video { margin: 0 -18px; }
+      .timer b { min-width: 60px; font-size: 23px; }
+    }
+  </style>
+  <!-- Meta Pixel Code（本LPと同一ID） -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2975141262829631');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2975141262829631&amp;ev=PageView&amp;noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+<body>
+  <main class="site">
+
+    <!-- ① 注意書き＋② カウントダウン -->
+    <section class="section bg-byakuroku">
+      <p class="notice">
+        <span class="nb">※このページは</span><span class="nb">一度だけしか</span><span class="nb">表示しませんので、</span><span class="nb">注意深く</span><span class="nb">文章と動画の内容を</span><span class="nb">ご覧ください。</span>
+        <span class="line"><span class="nb cg">非常に重要な内容と</span><span class="nb cg">なっております。</span></span>
+      </p>
+      <div class="limit">
+        <p><span class="nb">無料個別相談の</span><span class="nb">受付枠には</span><span class="nb">限りがあります。</span><span class="nb">申し込み終了まで——</span></p>
+        <div class="timer" aria-hidden="true">
+          <b><span id="t-d">-</span><small>DAYS</small></b>
+          <b><span id="t-h">--</span><small>HOURS</small></b>
+          <b><span id="t-m">--</span><small>MIN</small></b>
+          <b><span id="t-s">--</span><small>SEC</small></b>
+        </div>
+      </div>
+    </section>
+
+    <!-- ③ 特別動画 -->
+    <section class="section bg-tokiwa">
+      <div class="sparkles" aria-hidden="true"></div>
+      <p class="eyebrow">Special Movie</p>
+      <h2 class="title">
+        <span class="line">LINE登録者限定</span>
+        <span class="line"><span class="cl">特別動画</span></span>
+      </h2>
+      <div class="video" id="lecture-video">
+        <!-- 動画：YouTube限定公開「LEGACYについて」（2026-09-29差し込み。差し替え時はIDのみ書き換え） -->
+        <iframe src="https://www.youtube-nocookie.com/embed/sM4JL9hKnzc?rel=0&amp;playsinline=1"
+          title="LINE登録者限定 特別動画"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>
+      </div>
+      <div class="cta-wrap">
+        <!-- 【差し替え】遷移先：本LPと同じLINE（@483vhbki）。予約専用URLがあれば全CTAを差し替え -->
+        <a class="cta-btn" href="https://line.me/R/ti/p/%40483vhbki" aria-label="LINEで無料個別相談に参加する"></a>
+        <p class="cta-note">※ボタンを押すと、LINEが開きます。</p>
+      </div>
+    </section>
+
+    <!-- ④ 無料個別相談の案内 -->
+    <section class="section bg-seiji">
+      <p class="eyebrow">Free Consultation</p>
+      <h2 class="title">
+        <span class="line">ジャップカサイ</span>
+        <span class="line"><span class="cl">「無料個別相談」</span>を</span>
+        <span class="line">開催します</span>
+      </h2>
+      <!-- 【差し替え】リード文・チェックリストの文言（本LPの記載から作成） -->
+      <p class="lead">
+        <span class="nb">年間リピーター950人・</span><span class="nb">サロン3店舗を</span><span class="nb">運営する</span><span class="nb">講師の竪元が、</span><span class="nb">あなたのサロンで</span><span class="nb">ジャップカサイを</span><span class="nb">始められるかを</span><span class="nb">オンラインで</span><span class="nb">直接お話しします。</span>
+      </p>
+      <ul class="check-list">
+        <li><span class="nb">今のサロンの状況</span><span class="nb">（メニュー・</span><span class="nb">単価・客層）の</span><span class="nb">整理</span></li>
+        <li><span class="nb">あなたのサロンで</span><span class="nb">ジャップカサイを</span><span class="nb">導入できるかの</span><span class="nb">確認</span></li>
+        <li><span class="nb">客単価2万円からの</span><span class="nb">メニュー設計・</span><span class="nb">価格の考え方</span></li>
+        <li><span class="nb">受講プラン</span><span class="nb">（1day／2days）と</span><span class="nb">開業支援のご案内</span></li>
+      </ul>
+      <p class="small-note">※オンラインで約30分です。日程はご都合に合わせて調整いたします。<br>※無理な勧誘は一切ありませんので、安心してご参加ください。</p>
+      <div class="cta-wrap">
+        <a class="cta-btn" href="https://line.me/R/ti/p/%40483vhbki" aria-label="LINEで無料個別相談に参加する"></a>
+        <p class="cta-note">※ボタンを押すと、LINEが開きます。</p>
+      </div>
+    </section>
+
+    <!-- ⑤ Message -->
+    <section class="section bg-byakuroku">
+      <p class="eyebrow">Message</p>
+      <figure class="msg-photo" role="img" aria-label="LEGACY主宰 竪元美帆"></figure>
+      <!-- 【差し替え】挨拶文（本LPの「スクールへの思い」と実績から作成。ご本人確認待ち） -->
+      <div class="message-block">
+        <p>
+          <span class="nb">はじめまして。</span><span class="nb">LEGACY主宰の</span><span class="nb">竪元美帆です。</span><br>
+          <span class="nb">数ある発信の中から</span><span class="nb">友だち追加いただき、</span><span class="nb">本当に</span><span class="nb">ありがとうございます。</span>
+        </p>
+        <p>
+          <span class="nb">私は</span><span class="nb">セラピストとして</span><span class="nb">4年半、</span><span class="nb">現在は</span><span class="nb">3店舗の</span><span class="nb">サロンを運営し、</span><span class="nb">年間950人の</span><span class="nb">リピーターの</span><span class="nb">お客様に</span><span class="nb">支えていただいています。</span><span class="nb">その中で</span><span class="nb">確信したのは、</span><span class="nb">売上が</span><span class="nb">安定しない原因は</span><span class="nb">技術不足ではなく、</span><span class="nb">「同じ市場で、</span><span class="nb">同じメニューで</span><span class="nb">戦っていること」だと</span><span class="nb">いうことです。</span>
+        </p>
+        <p>
+          <span class="nb">ジャップカサイを</span><span class="nb">学べるスクールも、</span><span class="nb">受けられるサロンも、</span><span class="nb">まだ</span><span class="nb">多くありません。</span><span class="nb">だからこそ、</span><span class="nb">一時的に</span><span class="nb">選ばれるだけでなく、</span><span class="nb"><span class="hl">長く信頼され、</span></span><span class="nb"><span class="hl">リピートされる</span></span><span class="nb"><span class="hl">サロン</span>を</span><span class="nb">増やしたい。</span><span class="nb">動画では、</span><span class="nb">その考え方と</span><span class="nb">始め方を</span><span class="nb">お話ししています。</span>
+        </p>
+        <p>
+          <span class="nb">無料個別相談は、</span><span class="nb">売り込みの場では</span><span class="nb">ありません。</span><span class="nb">「あなたのサロンで</span><span class="nb">できるか」を</span><span class="nb">確かめる</span><span class="nb">30分です。</span><span class="nb">疑問や不安に、</span><span class="nb">一つずつ</span><span class="nb">お答えします。</span><br>
+          <span class="nb">お話しできることを、</span><span class="nb">楽しみに</span><span class="nb">しています。</span>
+        </p>
+        <div class="sign"><span>LEGACY主宰</span><b>竪元 美帆</b></div>
+      </div>
+      <div class="cta-wrap">
+        <a class="cta-btn" href="https://line.me/R/ti/p/%40483vhbki" aria-label="LINEで無料個別相談に参加する"></a>
+        <p class="cta-note">※ボタンを押すと、LINEが開きます。</p>
+      </div>
+    </section>
+
+    <footer class="ft">
+      <p><span class="nb">性的なサービスは</span><span class="nb">一切含まない、</span><span class="nb">正規の</span><span class="nb">療術スクールです。</span></p>
+      <p>&copy; LEGACY</p>
+    </footer>
+  </main>
+
+  <script>
+    /* 申し込みクリックをMetaピクセルのLeadとして送信 */
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest('a[href*="line.me"],a[href*="lin.ee"]');
+      if (a && typeof fbq === "function") {
+        fbq("track", "Lead", { content_name: "LEGACY_SOUDAN_CTA" });
+      }
+    }, true);
+
+    /* 72時間（残り3日）のカウントダウン。訪問者ごと、期限切れで再セット */
+    (function () {
+      var KEY = "legacy_deadline_v1", span = 72 * 60 * 60 * 1000, dl;
+      try { dl = parseInt(localStorage.getItem(KEY), 10); } catch (e) {}
+      if (!dl || isNaN(dl) || dl < Date.now()) {
+        dl = Date.now() + span;
+        try { localStorage.setItem(KEY, String(dl)); } catch (e) {}
+      }
+      var d = document.getElementById("t-d"), h = document.getElementById("t-h"),
+          m = document.getElementById("t-m"), s = document.getElementById("t-s");
+      function pad(n) { return (n < 10 ? "0" : "") + n; }
+      function tick() {
+        var r = Math.max(0, dl - Date.now());
+        d.textContent = Math.floor(r / 86400000);
+        h.textContent = pad(Math.floor(r % 86400000 / 3600000));
+        m.textContent = pad(Math.floor(r % 3600000 / 60000));
+        s.textContent = pad(Math.floor(r % 60000 / 1000));
+      }
+      tick(); setInterval(tick, 1000);
+    })();
+  </script>
+</body>
+</html>
